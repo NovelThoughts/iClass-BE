@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
+import { connectDB } from "./database/config.js";
 import router from "./routes/router.js";
 
 dotenv.config();
@@ -17,6 +18,14 @@ app.use("/api/v1/", router);
 
 const PORT = process.env.PORT || 8000;
 
-app.listen(PORT, () =>
-  console.log(`Server running on port ${PORT} | http://localhost:${PORT}`)
-);
+const startServer = async () => {
+  console.log("Connecting to DB...");
+  const connection = await connectDB();
+  if (connection) {
+    app.listen(PORT, () =>
+      console.log(`Server running on port ${PORT} | http://localhost:${PORT}`)
+    );
+  }
+};
+
+startServer();
