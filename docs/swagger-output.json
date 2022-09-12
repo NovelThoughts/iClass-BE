@@ -1,3 +1,26 @@
 {
-
+  "swagger": "2.0",
+  "info": {
+    "title": "iClass API V1",
+    "description": "Documentation for the iClass API Endpoints.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/v1/user/login": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
 }
